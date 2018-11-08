@@ -1,0 +1,38 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+default_platform(:android)
+
+platform :android do
+  desc "Deploy a new version to the Fabric"
+  lane :fabric do
+    # build the release variant
+    # bump_version_code
+    gradle(task: 'assemble', build_type: 'Release')
+  
+    # upload to Beta by Crashlytics
+    crashlytics(
+      api_token: "fbe55deaa7e2360ed1b98c12d5860b24f7e352d6",
+      build_secret: "4cd56c676b9e5f469041c6d51ec090d34cf731e63c43ec7183249e943b97f700",
+      emails:
+        "
+          mobile@webbylab.com,
+          testuserwebbylab@gmail.com,
+          vira.rdnv@gmail.com
+        "
+    )
+  end
+
+end
