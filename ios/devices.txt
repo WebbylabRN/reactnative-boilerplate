@@ -1,3 +1,2 @@
 Device ID	Device Name
 814a5aa5f8e646bbde2fca2c8ffb5904eb85080e	iPhone
-690a475b76e25a268a52fe8ebaaa284afda52435    iPhone

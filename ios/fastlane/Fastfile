@@ -18,8 +18,9 @@ default_platform(:ios)
 platform :ios do
   desc "Build App and push a it to Fabric"
   lane :fabric do
-    match(type: "appstore")
-    # register_devices(devices_file: "devices.txt")
+    # match(type: "adhoc")
+    register_devices(devices_file: "devices.txt")
+    sync_code_signing(force_for_new_devices: true, type: "adhoc")
     build_app(scheme: "ReactNativeBoilerplate")
     crashlytics(
      api_token: "fbe55deaa7e2360ed1b98c12d5860b24f7e352d6",
