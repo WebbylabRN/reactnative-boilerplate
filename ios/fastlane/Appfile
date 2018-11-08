@@ -1,11 +1,14 @@
-app_identifier("com.webbylab.reactnativeboilerplate") # The bundle identifier of your app
-apple_id("mobile@webbylab.com") # Your Apple email address
+file = File.read('../../appconfig.json')
+config = JSON.parse(file)
+
+app_identifier(config['ios']['bundle_id']) # The bundle identifier of your app
+apple_id(config['ios']['apple_id']) # Your Apple email address
 
 
 # You can uncomment the lines below and add your own
 # team selection in case you're in multiple teams
-team_name "Viktor Turskyi"
-team_id "EJ5Z23NZZA"
+team_name config['ios']['team_name']
+team_id config['ios']['team_id']
 
 # For more information about the Appfile, see:
 #     https://docs.fastlane.tools/advanced/#appfile

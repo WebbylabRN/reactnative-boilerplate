@@ -1,8 +1,11 @@
-git_url("git@gitlab.webbylab.com:temporary/ios-certs.git")
+file = File.read(Dir.pwd + '/../appconfig.json')
+config = JSON.parse(file)
+
+git_url(config['ios']['certificates_repo'])
 
 type("development") # The default type, can be: appstore, adhoc, enterprise or development
 
-app_identifier("com.webbylab.reactnativeboilerplate")
+# app_identifier(config['ios']['bundle_id'])
 # username("user@fastlane.tools") # Your Apple Developer Portal username
 
 # For all available options run `fastlane match --help`
