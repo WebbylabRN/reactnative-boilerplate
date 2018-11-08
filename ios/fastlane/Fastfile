@@ -1,0 +1,35 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+default_platform(:ios)
+
+platform :ios do
+  desc "Build App and push a it to Fabric"
+  lane :fabric do
+    match(type: "appstore")
+    # register_devices(devices_file: "devices.txt")
+    build_app(scheme: "ReactNativeBoilerplate")
+    crashlytics(
+     api_token: "fbe55deaa7e2360ed1b98c12d5860b24f7e352d6",
+     build_secret: "4cd56c676b9e5f469041c6d51ec090d34cf731e63c43ec7183249e943b97f700",
+     emails:
+       "
+         mobile@webbylab.com,
+         testuserwebbylab@gmail.com
+       "
+    )
+
+  end
+end
