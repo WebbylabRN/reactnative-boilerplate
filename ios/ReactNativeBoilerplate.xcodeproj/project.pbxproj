@@ -1190,7 +1190,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Fabric/run\" fbe55deaa7e2360ed1b98c12d5860b24f7e352d6 4cd56c676b9e5f469041c6d51ec090d34cf731e63c43ec7183249e943b97f700\n";
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" ${CRASHLITICS_API_TOKEN} ${CRASHLITICS_BUILD_SECRET}\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1303,7 +1303,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = EJ5Z23NZZA;
 				INFOPLIST_FILE = ReactNativeBoilerplate/Info.plist;
@@ -1330,7 +1330,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = EJ5Z23NZZA;
 				INFOPLIST_FILE = ReactNativeBoilerplate/Info.plist;
 				INFOPLIST_OTHER_PREPROCESSOR_FLAGS = "-traditional";

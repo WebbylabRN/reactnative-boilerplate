@@ -25,7 +25,7 @@
 	<key>Fabric</key>
 	<dict>
 		<key>APIKey</key>
-		<string>fbe55deaa7e2360ed1b98c12d5860b24f7e352d6</string>
+		<string>__RN_CONFIG_CRASHLITICS_API_TOKEN</string>
 		<key>Kits</key>
 		<array>
 			<dict>
