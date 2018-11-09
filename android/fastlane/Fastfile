@@ -13,25 +13,38 @@
 # Uncomment the line if you want fastlane to automatically update itself
 # update_fastlane
 
+require 'dotenv'
+Dotenv.load('../../.env')
+
 default_platform(:android)
 
 platform :android do
+  desc "Increment version code"
+  lane :bump_version_code do
+    path = '../app/build.gradle'
+    re = /versionCode\s+(\d+)/ 
+
+    s = File.read(path)
+    versionCode = s[re, 1].to_i
+    s[re, 1] = (ENV['CI_BUILD_ID'] || (versionCode + 1)).to_s
+
+    f = File.new(path, 'w')
+    f.write(s)
+    f.close
+  end
+
   desc "Deploy a new version to the Fabric"
   lane :fabric do
+    bump_version_code
+    
     # build the release variant
-    # bump_version_code
     gradle(task: 'assemble', build_type: 'Release')
   
     # upload to Beta by Crashlytics
     crashlytics(
-      api_token: "fbe55deaa7e2360ed1b98c12d5860b24f7e352d6",
-      build_secret: "4cd56c676b9e5f469041c6d51ec090d34cf731e63c43ec7183249e943b97f700",
-      emails:
-        "
-          mobile@webbylab.com,
-          testuserwebbylab@gmail.com,
-          vira.rdnv@gmail.com
-        "
+      api_token: ENV['CRASHLITICS_API_TOKEN'],
+      build_secret: ENV['CRASHLITICS_BUILD_SECRET'],
+      emails: ENV['CRASHLITICS_EMAILS']
     )
   end
 

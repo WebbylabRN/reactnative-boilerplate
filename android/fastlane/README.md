@@ -16,6 +16,11 @@ or alternatively using `brew cask install fastlane`
 
 # Available Actions
 ## Android
+### android bump_version_code
+```
+fastlane android bump_version_code
+```
+Increment version code
 ### android fabric
 ```
 fastlane android fabric
