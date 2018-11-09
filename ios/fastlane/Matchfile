@@ -1,11 +1,11 @@
-file = File.read(Dir.pwd + '/../appconfig.json')
-config = JSON.parse(file)
+require 'dotenv'
+Dotenv.load('../.env')
 
-git_url(config['ios']['certificates_repo'])
+git_url(ENV['CERTIFICATES_REPO'])
 
 type("development") # The default type, can be: appstore, adhoc, enterprise or development
 
-# app_identifier(config['ios']['bundle_id'])
+# app_identifier(ENV['BUNDLE_ID'])
 # username("user@fastlane.tools") # Your Apple Developer Portal username
 
 # For all available options run `fastlane match --help`
