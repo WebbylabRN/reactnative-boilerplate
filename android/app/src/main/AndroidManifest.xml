@@ -23,7 +23,7 @@
       <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />
       <meta-data
         android:name="io.fabric.ApiKey"
-        android:value="${CRASHLITICS_API_TOKEN}"
+        android:value="${FABRIC_API_KEY}"
       />
     </application>
 

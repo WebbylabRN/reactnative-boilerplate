@@ -1,4 +1,5 @@
 apply plugin: "com.android.application"
+apply from:  "../dotenv.gradle"
 apply plugin: 'io.fabric'
 
 import com.android.build.OutputFile
@@ -107,6 +108,7 @@ android {
         ndk {
             abiFilters "armeabi-v7a", "x86"
         }
+        manifestPlaceholders = [FABRIC_API_KEY:project.ext.env.CRASHLITICS_API_TOKEN]
     }
     splits {
         abi {

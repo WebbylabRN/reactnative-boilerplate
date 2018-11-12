@@ -51,14 +51,3 @@ task wrapper(type: Wrapper) {
     gradleVersion = '4.4'
     distributionUrl = distributionUrl.replace("bin", "all")
 }
-
-task setEnvVariables {
-    doFirst {
-        exec {
-            System.out.println("*********************")
-            System.out.println("*********************")
-            System.out.println("*********************")
-            commandLine 'source ../.env'
-        }
-    }
-}
