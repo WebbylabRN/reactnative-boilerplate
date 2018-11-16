@@ -713,7 +713,7 @@
 					};
 					13B07F861A680F5B00A75B9A = {
 						DevelopmentTeam = EJ5Z23NZZA;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -1106,7 +1106,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
+			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh\n";
 		};
 		0BF46BA5ED7189A1FE869CF4 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1272,13 +1272,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 8;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = EJ5Z23NZZA;
+				FABRIC_API_KEY = 127e1d1689a85d06cf487b75983ffeecdb345f60;
 				INFOPLIST_FILE = ReactNativeBoilerplate/Info.plist;
 				INFOPLIST_OTHER_PREPROCESSOR_FLAGS = "-traditional";
-				INFOPLIST_PREFIX_HEADER = "${BUILD_DIR}/GeneratedInfoPlistDotEnv.h";
 				INFOPLIST_PREPROCESS = YES;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -1288,7 +1288,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.webbylab.reactnativeboilerplate;
 				PRODUCT_NAME = ReactNativeBoilerplate;
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = "match Development com.webbylab.reactnativeboilerplate";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -1298,13 +1298,13 @@
 			baseConfigurationReference = 3A9FF39E7607962B5154AF92 /* Pods-ReactNativeBoilerplate.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_TEAM = EJ5Z23NZZA;
+				FABRIC_API_KEY = 127e1d1689a85d06cf487b75983ffeecdb345f60;
 				INFOPLIST_FILE = ReactNativeBoilerplate/Info.plist;
 				INFOPLIST_OTHER_PREPROCESSOR_FLAGS = "-traditional";
-				INFOPLIST_PREFIX_HEADER = "${BUILD_DIR}/GeneratedInfoPlistDotEnv.h";
 				INFOPLIST_PREPROCESS = YES;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -1314,7 +1314,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.webbylab.reactnativeboilerplate;
 				PRODUCT_NAME = ReactNativeBoilerplate;
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.webbylab.reactnativeboilerplate";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
