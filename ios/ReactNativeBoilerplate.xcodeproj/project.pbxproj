@@ -1160,7 +1160,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "envfile=$(< /tmp/my_envfile)\nsource $PROJECT_DIR/../$envfile\n\n\"${PODS_ROOT}/Fabric/run\" ${CRASHLITICS_API_TOKEN} ${CRASHLITICS_BUILD_SECRET}\n";
+			shellScript = "source $PROJECT_DIR/../.env\n\n\"${PODS_ROOT}/Fabric/run\" ${CRASHLITICS_API_TOKEN} ${CRASHLITICS_BUILD_SECRET}\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
