@@ -1,0 +1,51 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+require 'dotenv'
+Dotenv.load('../../.env')
+
+default_platform(:android)
+
+platform :android do
+  desc "Increment version code"
+  lane :bump_version_code do
+    path = '../app/build.gradle'
+    re = /versionCode\s+(\d+)/ 
+
+    s = File.read(path)
+    versionCode = s[re, 1].to_i
+    s[re, 1] = (ENV['CI_BUILD_ID'] || (versionCode + 1)).to_s
+
+    f = File.new(path, 'w')
+    f.write(s)
+    f.close
+  end
+
+  desc "Deploy a new version to the Fabric"
+  lane :fabric do
+    bump_version_code
+    
+    # build the release variant
+    gradle(task: 'assemble', build_type: 'Release')
+  
+    # upload to Beta by Crashlytics
+    crashlytics(
+      api_token: ENV['CRASHLITICS_API_TOKEN'],
+      build_secret: ENV['CRASHLITICS_BUILD_SECRET'],
+      emails: ENV['CRASHLITICS_EMAILS']
+    )
+  end
+
+end
