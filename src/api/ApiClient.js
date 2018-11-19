@@ -1,6 +1,3 @@
-import appState from '../stores/appState.js';
-import Stores from '../stores/index.js';
-
 /**
  * Core api class of connection to server
  */
@@ -20,8 +17,8 @@ export default class ApiClient {
     }
 
     static CONTENT_TYPES = {
-        'JSON':                  'application/json; charset=utf-8',
-        'X_WWW_FORM_URLENCODED': 'application/x-www-form-urlencoded; charset=utf-8'
+        'JSON'                  : 'application/json; charset=utf-8',
+        'X_WWW_FORM_URLENCODED' : 'application/x-www-form-urlencoded; charset=utf-8'
     }
 
     /**
@@ -35,26 +32,28 @@ export default class ApiClient {
 
         if (method !== 'get') options.body = body;
 
-        if (await appState.getConnectionStatus()) {
-            const resp = await this.fetch(url, options, 2);
-            if (!resp) throw new Error('Bad response');
+        // You need to check connection before request
+        // if (await appState.getConnectionStatus()) {
+        const resp = await this.fetch(url, options, 2);
 
-            const parsedResp = await resp.json();
-            
-            return parsedResp;
+        if (!resp) throw new Error('Bad response');
 
-            // if (parsedResp && parsedResp.status === 'success') {
-            //     return parsedResp.result;
-            // }
+        const parsedResp = await resp.json();
 
-            // if (this.onError) this.onError(parsedResp.error);
+        return parsedResp;
 
-            // if (typeof parsedResp.error === 'string') {
-            //     throw new Error(parsedResp.error);
-            // }
-        }
+        // if (parsedResp && parsedResp.status === 'success') {
+        //     return parsedResp.result;
+        // }
 
-        throw new Error('No internet connection');
+        // if (this.onError) this.onError(parsedResp.error);
+
+        // if (typeof parsedResp.error === 'string') {
+        //     throw new Error(parsedResp.error);
+        // }
+        // }
+
+        // throw new Error('No internet connection');
     }
 
     /**
@@ -165,7 +164,7 @@ export default class ApiClient {
     _getContentTypeByMethod(method) {
         return method.toLowerCase() === 'get'
             ? ApiClient.CONTENT_TYPES.X_WWW_FORM_URLENCODED
-            : ApiClient.CONTENT_TYPES.JSON
+            : ApiClient.CONTENT_TYPES.JSON;
     }
 
     /**

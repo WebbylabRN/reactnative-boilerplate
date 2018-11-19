@@ -1,6 +1,6 @@
-import Base from './Base.js';
-
 import config from '../etc/config.js';
+
+import Base from './Base.js';
 
 export default class HolidaysAPI extends Base {
     async load({ country = 'UA', year, month }) {
