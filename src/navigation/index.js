@@ -3,10 +3,14 @@ import { Navigation }       from 'react-native-navigation';
 
 import WelcomeScreen from '../components/screens/WelcomeScreen/WelcomeScreen.js';
 
+import NavButton from './buttons/NavButton.js';
+
 import navOptions  from './options.js';
 
 export function registerComponents() {
     Navigation.registerComponent('navigation.WelcomeScreen', () => renderScreen(WelcomeScreen, null, 'WelcomeScreen'));
+
+    Navigation.registerComponent('buttons.NavButton', () => NavButton);
 }
 
 function renderScreen(Page, Layout, id) {
