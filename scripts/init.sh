@@ -15,7 +15,7 @@ init_webbylab_app() {
     BUNDLE_ID=$(read_var BUNDLE_ID $CONFIGFILE)
     APPLE_ID=$(read_var APPLE_ID $CONFIGFILE)
     TEAM_ID=$(read_var TEAM_ID $CONFIGFILE)
-    CRASHLITICS_API_TOKEN=$(read_var CRASHLITICS_API_TOKEN $CONFIGFILE)
+    CRASHLYTICS_API_TOKEN=$(read_var CRASHLYTICS_API_TOKEN $CONFIGFILE)
     GIT_REPO=$(read_var GIT_REPO $CONFIGFILE)
 
     echo -e "${COLOR}CLONE REPO${NC}"
@@ -28,7 +28,7 @@ init_webbylab_app() {
         rm $FILE
     fi
 
-    declare -a env_vars=("BUNDLE_ID" "APPLE_ID" "TEAM_NAME" "TEAM_ID" "APP_NAME" "CRASHLITICS_API_TOKEN" "CRASHLITICS_BUILD_SECRET" "CRASHLITICS_EMAILS" "CERTIFICATES_REPO")
+    declare -a env_vars=("BUNDLE_ID" "APPLE_ID" "TEAM_NAME" "TEAM_ID" "APP_NAME" "CRASHLYTICS_API_TOKEN" "CRASHLYTICS_BUILD_SECRET" "CRASHLYTICS_EMAILS" "CERTIFICATES_REPO")
 
     for i in "${env_vars[@]}"
     do
@@ -56,7 +56,7 @@ init_webbylab_app() {
     cd $APP_NAME.xcodeproj
     
     echo -e "${COLOR}[iOS] Add FABRIC_API_KEY to build settings${NC}"
-    sed -i'.original' 's/FABRIC_API_KEY = .*;/FABRIC_API_KEY = '$CRASHLITICS_API_TOKEN';/g' project.pbxproj
+    sed -i'.original' 's/FABRIC_API_KEY = .*;/FABRIC_API_KEY = '$CRASHLYTICS_API_TOKEN';/g' project.pbxproj
     rm project.pbxproj.original
     
     cd ../

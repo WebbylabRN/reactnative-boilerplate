@@ -42,9 +42,9 @@ platform :android do
   
     # upload to Beta by Crashlytics
     crashlytics(
-      api_token: ENV['CRASHLITICS_API_TOKEN'],
-      build_secret: ENV['CRASHLITICS_BUILD_SECRET'],
-      emails: ENV['CRASHLITICS_EMAILS']
+      api_token: ENV['CRASHLYTICS_API_TOKEN'],
+      build_secret: ENV['CRASHLYTICS_BUILD_SECRET'],
+      emails: ENV['CRASHLYTICS_EMAILS']
     )
   end
 
