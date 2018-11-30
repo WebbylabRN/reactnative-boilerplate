@@ -5,7 +5,10 @@
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest",
-    "lint": "eslint src index.js"
+    "lint": "eslint src index.js",
+    "fabric_android": "cd android && fastlane fabric && cd ../",
+    "fabric_ios": "cd ios && fastlane fabric && cd ../",
+    "switch": "bash scripts/switch.sh"
   },
   "dependencies": {
     "livr": "2.1.0",
