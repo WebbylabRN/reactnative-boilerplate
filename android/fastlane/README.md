@@ -26,6 +26,11 @@ Increment version code
 fastlane android fabric
 ```
 Deploy a new version to the Fabric
+### android icon
+```
+fastlane android icon
+```
+Make icons
 
 ----
 

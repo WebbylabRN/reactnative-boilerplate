@@ -8,7 +8,9 @@
     "lint": "eslint src index.js",
     "fabric_android": "cd android && fastlane fabric && cd ../",
     "fabric_ios": "cd ios && fastlane fabric && cd ../",
-    "switch": "bash scripts/switch.sh"
+    "switch": "bash scripts/switch.sh",
+    "testflight": "cd ios && fastlane upload_to_tf && cd ../", 
+    "update_icons": "cd android && fastlane icon && cd ../ && cd ios && fastlane icon && cd ../"
   },
   "dependencies": {
     "livr": "2.1.0",

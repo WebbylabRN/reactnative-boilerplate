@@ -36,6 +36,19 @@ platform :ios do
       build_secret: ENV['CRASHLYTICS_BUILD_SECRET'],
       emails: ENV['CRASHLYTICS_EMAILS']
     )
+  end
 
+  desc "Push a new release build to testflight"
+  lane :upload_to_tf do
+    match(type: "appstore")
+    build_app(scheme: ENV['APP_NAME'])
+    upload_to_testflight
+  end
+
+  desc "Make icons"
+  lane :icon do
+    appicon(appicon_image_file: '../ios-icon.png',
+      appicon_devices: [:iphone, :ios_marketing],
+      appicon_path: ENV['APP_NAME'] + '/Images.xcassets')
   end
 end

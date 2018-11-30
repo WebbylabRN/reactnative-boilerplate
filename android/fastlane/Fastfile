@@ -48,4 +48,18 @@ platform :android do
     )
   end
 
+  desc "Make icons"
+  lane :icon do
+    android_appicon(
+      appicon_image_file: '../android-icon.png',
+      appicon_icon_types: [:launcher],
+      appicon_path: 'app/src/main/res/mipmap'
+    )
+    android_appicon(
+      appicon_image_file: '../android-icon.png',
+      appicon_icon_types: [:notification],
+      appicon_path: 'app/src/main/res/drawable',
+      appicon_filename: 'ic_notification'
+    )
+  end
 end
